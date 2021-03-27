@@ -1,0 +1,36 @@
+{
+  "name": "production",
+  "description": "This is a production environment.",
+  "cookbook_versions": {
+    "bootstrap_a_node": "2.3.2",
+    "chef-client": "12.3.3",
+    "chef_client_updater": "3.11.1",
+    "cron": "6.4.0",
+    "logrotate": "2.3.0",
+    "nginx": "11.4.0",
+    "nginx_setup": "1.0.0",
+    "ohai": "5.3.0",
+    "postgresql_setup": "0.1.0",
+    "slack_handler": "1.0.0"
+  },
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+    "chef_client": {
+      "interval": 43200,
+      "splay": 21600,
+      "version": "16",
+      "handler": {
+        "slack": {
+          "enabled": false
+        }
+      }
+    },
+    "bootstrap_a_node": {
+      "environment": "production"
+    }
+  },
+  "json_class": "Chef::Environment",
+  "chef_type": "environment"
+}
